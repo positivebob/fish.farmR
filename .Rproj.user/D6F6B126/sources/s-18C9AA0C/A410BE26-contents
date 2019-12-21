@@ -1,0 +1,7 @@
+##### header ##### 
+# author: Robert P. McGuinn, rpm@alumni.duke.edu
+# date started: 20191221
+# purpose: create hugo web site, code name: datafish
+
+##### create new site ##### 
+blogdown::new_site()
