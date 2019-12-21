@@ -1,9 +1,9 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "DataFish Title"
+title = "fish.farmR"
 theme = "hugo-lithium"
-googleAnalytics = ""
-disqusShortname = ""
+googleAnalytics = "fish.farmR"
+disqusShortname = "fish.farmR"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [permalinks]
@@ -17,7 +17,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     url = "https://github.com/rstudio/blogdown"
 [[menu.main]]
     name = "Twitter"
-    url = "https://twitter.com/rstudio"
+    url = "https://twitter.com/fish_farmR"
 
 [params]
     description = "A website built through Hugo and blogdown."

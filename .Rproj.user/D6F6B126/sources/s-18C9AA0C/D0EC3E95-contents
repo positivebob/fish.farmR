@@ -1,6 +1,0 @@
-#install.packages('blogdown')
-# library(blogdown)
-# blogdown::install_hugo()
-# blogdown::new_site()
-blogdown::build_site()
-blogdown::new_post("yo2", ext = getOption("blogdown.ext", ".Rmd"))

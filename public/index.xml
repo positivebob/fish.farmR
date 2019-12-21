@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DataFish Title</title>
+    <title>fish.farmR</title>
     <link>/</link>
-    <description>Recent content on DataFish Title</description>
+    <description>Recent content on fish.farmR</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 21 Dec 2019 21:00:00 +0000</lastBuildDate>
@@ -28,7 +28,8 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>The focus will be on using R-based tools to gather and explore data sets relevant to aquaculture operations, finance, and economics.</description>
+      <description>This is an &amp;lsquo;open notebook&amp;rsquo; that is focused on the application of R-based tools to gather and explore data sets relevant to aquaculture operations, finance, and economics. I identify with my ignorance and not with my knowledge on the topic. So come along with me as I bumble through!
+Robert P. McGuinn 2019-12-21 Charleston, South Carolina, USA</description>
     </item>
     
     <item>
