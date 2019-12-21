@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2819730173",
+    "hash" : "2445431572",
     "id" : "EA2CC64C",
-    "lastKnownWriteTime" : 1576950027,
-    "last_content_update" : 1576950027097,
+    "lastKnownWriteTime" : 1576957982,
+    "last_content_update" : 1576957982168,
     "path" : "C:/rworking/datafish/config.toml",
     "project_path" : "config.toml",
     "properties" : {
-        "cursorPosition" : "3,21",
-        "scrollLine" : "1"
+        "cursorPosition" : "38,12",
+        "scrollLine" : "33"
     },
     "read_only" : false,
     "read_only_alternatives" : [

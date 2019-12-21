@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on DataFish</title>
+    <title>Posts on DataFish Title</title>
     <link>/post/</link>
-    <description>Recent content in Posts on DataFish</description>
+    <description>Recent content in Posts on DataFish Title</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 21 Dec 2019 21:00:00 +0000</lastBuildDate>

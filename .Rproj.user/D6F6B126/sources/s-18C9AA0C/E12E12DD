@@ -1,25 +1,25 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1576946157928.000,
+    "created" : 1576952124614.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "0",
-    "id" : "73B6A8FA",
-    "lastKnownWriteTime" : 1576946141,
-    "last_content_update" : 1576946141,
-    "path" : "C:/rworking/datafish/.gitignore",
-    "project_path" : ".gitignore",
+    "id" : "E12E12DD",
+    "lastKnownWriteTime" : 1576948168,
+    "last_content_update" : 1576948168,
+    "path" : "C:/rworking/datafish/index.Rmd",
+    "project_path" : "index.Rmd",
     "properties" : {
-        "cursorPosition" : "4,0",
+        "cursorPosition" : "2,1",
         "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 1,
+    "relative_order" : 7,
     "source_on_save" : false,
     "source_window" : "",
-    "type" : "gitignore"
+    "type" : "r_markdown"
 }

@@ -1,6 +1,6 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "DataFish"
+title = "DataFish Title"
 theme = "hugo-lithium"
 googleAnalytics = ""
 disqusShortname = ""
@@ -35,8 +35,8 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     favicon = "favicon.ico"
 
     [params.logo]
-    url = "yo400x400.jpg"
-    width = 50
+    url = "fishfarmr.png"
+    width = 500
     height = 50
     alt = "Logo"
 
