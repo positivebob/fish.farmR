@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576948829941.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2819730173",
+    "id" : "EA2CC64C",
+    "lastKnownWriteTime" : 1576950027,
+    "last_content_update" : 1576950027097,
+    "path" : "C:/rworking/datafish/config.toml",
+    "project_path" : "config.toml",
+    "properties" : {
+        "cursorPosition" : "3,21",
+        "scrollLine" : "1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "toml"
+}

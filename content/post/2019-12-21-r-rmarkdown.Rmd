@@ -1,7 +1,7 @@
 ---
-title: "Hello R Markdown"
+title: "fishdata"
 author: "Robert McGuinn"
-date: 2015-07-23T21:13:14-05:00
+date: 2019-12-21T21:00:00-00:00
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 ---
