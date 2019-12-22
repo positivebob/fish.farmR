@@ -9,7 +9,7 @@ tags: []
 
 # purpose
  
-Download and take an intial look at the STECF auquaculture data in preparation for subsequent analysis and visualization.   
+Download and take an intial look at the STECF aquaculture data in preparation for subsequent analysis and visualization.   
 
 # analyst note 
 
