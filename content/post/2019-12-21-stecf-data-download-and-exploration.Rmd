@@ -1,7 +1,7 @@
 ---
-title: STECF data download and inspect (part_1)
+title: Exploring EU aquacultural economy (part_1)
 author: Robert P. McGuinn
-date: '2019-12-21'
+date: '2019-12-22'
 slug: stecf-data-download-and-exploration
 categories: []
 tags: []
@@ -38,11 +38,12 @@ Once you have the file downloaded, open it in Excel and take a look. I see that 
 # load packages  
 The following list of packages are required to run the subsequent R commands. Install these if you do not already have them.
 
-```{r load_packages, eval=FALSE}
+```{r load_packages, eval=TRUE, results='hide', message=FALSE, warning=FALSE}
 
 library(openxlsx)
 library(tidyverse)
 library(magrittr)
+library(flextable)
 
 ```
 
@@ -67,17 +68,17 @@ Run the following exploratory commands.
 
 ```{r names_dcf, eval = TRUE}
 
-# look and variables and df size
+# look at the variables and data fram dimensions for 'dcf'
 names(dcf)
 length(dcf)
 dim(dcf)
 
-# look and variables and df size
+# look at the variables and data frame dimensions for 'eumap'
 names(eumap)
 length(eumap)
 dim(eumap)
 
-# check for variable name mismatches
+# check for variable name mismatches between the two files
 setdiff(names(dcf), names(eumap))
 setdiff(names(eumap), names(dcf))
 
@@ -112,11 +113,54 @@ The number of records within **'dcf'** is `r prettyNum(a, big.mark = ",")`, with
 
 The above paragraph uses inline code for the numerical values. Example below of what would be placed in an RMarkdown document, like this one.
 
-```{r inline, eval = FALSE}
+```{r inline_example, eval = FALSE}
 
 ...number of records within dcf is `r prettyNum(a, big.mark = ",")`
 
 ```
+
+# table by country
+
+Here is an example summary table grouped by country with total sales volume in tonnes (mean per firm value sum of all sales volume regardless of the year of reporting)
+
+``` {r dcm_by_country, eval = TRUE}
+
+x <- dcf %>% filter(value != 0, 
+                    variable_name == 'Total sales volume'
+                    # year == 2008
+) %>% 
+  group_by(country_name) %>%
+  summarize(# species = paste(unique(species), collapse=" | "),
+            variable = paste(unique(variable_name), collapse = " | "),
+            # country_name = paste(unique(country_name), collapse = " | "),
+            mean_value = mean(value),
+            sum_of_value = sum(value),
+            unit = paste(unique(unit), collapse=" | "),
+            firms = n()) %>% arrange(-sum_of_value)
+
+#View(x)
+
+colkeys <- names(x[,-1])
+
+ft <- flextable(x) %>% 
+  theme_vanilla() %>% #booktabs, vanilla, box, tron, tron_legacy
+ # set_header_labels(Field_Names = "Field Name", n = "# of Records") %>% 
+  colformat_num(col_keys = colkeys, digits = 0, big.mark = ",", na_str = "NA") %>% 
+  set_header_labels(country_name = "country"
+                    #species = "species_list"
+                    ) %>% 
+  font(fontname = "Cambria", part = "all") %>% #header, body, all
+  fontsize(size = 14, part = "all") %>% 
+  autofit() 
+
+ft
+
+```
+
+
+
+
+
 
 
 

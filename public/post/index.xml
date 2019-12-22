@@ -6,10 +6,20 @@
     <description>Recent content in Posts on fish.farmR</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Exploring EU aquacultural economy (part_1)</title>
+      <link>/2019/12/22/stecf-data-download-and-exploration/</link>
+      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/12/22/stecf-data-download-and-exploration/</guid>
+      <description>purposeDownload and take an intial look at the European Commisson, Fisheries and Aquaculture: Scientific, Technical and Economic Committee for Fisheries (STECF) aquaculture economic data tables.
+analyst noteThis is part 1. As I move through the stages of exploration, and when I feel like it might be worth sharing with you, I’ll post another part. Each part will include data and package load steps, so that they can be more stand-alone.</description>
+    </item>
     
     <item>
       <title>Hello all and welcome!</title>
@@ -18,16 +28,6 @@
       
       <guid>/2019/12/21/hello-all-and-welcome/</guid>
       <description>Yo!Well isn’t this lovely! I get to pretend that I’m talking to the entire world. And yet I don’t want to speak to the whole world, I want to speak only to you, the person who wants to know more about world of aquaculture data analysis and visualization. I am so glad that you are here! We will have fun learning about this fascinating and growing ecosystem of information and real actions on the ground.</description>
-    </item>
-    
-    <item>
-      <title>STECF data download and inspect (part_1)</title>
-      <link>/2019/12/21/stecf-data-download-and-exploration/</link>
-      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/12/21/stecf-data-download-and-exploration/</guid>
-      <description>purposeDownload and take an intial look at the European Commisson, Fisheries and Aquaculture: Scientific, Technical and Economic Committee for Fisheries (STECF) aquaculture economic data tables.
-analyst noteThis is part 1. As I move through the stages of exploration, and when I feel like it might be worth sharing with you, I’ll post another part. Each part will include data and package load steps, so that they can be more stand-alone.</description>
     </item>
     
   </channel>
