@@ -3,52 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-12-21T21:00:00+00:00</lastmod>
+    <loc>/about/</loc>
+    <lastmod>2019-12-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-12-21T21:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2019/12/21/fishdata/</loc>
-    <lastmod>2019-12-21T21:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/plot/</loc>
-    <lastmod>2019-12-21T21:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-12-21T21:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-12-21T21:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2019-12-21T21:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/regression/</loc>
-    <lastmod>2019-12-21T21:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-12-21T21:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
     <lastmod>2019-12-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -58,8 +18,16 @@
   </url>
   
   <url>
-    <loc>/2019/12/21/yo2/</loc>
+    <loc>/post/</loc>
     <lastmod>2019-12-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
   </url>
   
 </urlset>

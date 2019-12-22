@@ -6,21 +6,10 @@
     <description>Recent content in Posts on fish.farmR</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Dec 2019 21:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>fishdata</title>
-      <link>/2019/12/21/fishdata/</link>
-      <pubDate>Sat, 21 Dec 2019 21:00:00 +0000</pubDate>
-      
-      <guid>/2019/12/21/fishdata/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
     
     <item>
       <title>Hello all and welcome</title>
@@ -29,15 +18,6 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       
       <guid>/2019/12/21/hello-all-and-welcome/</guid>
       <description>Yo!Well isn’t this lovely! I get to pretend that I’m talking to the entire world. And yet I don’t want to speak to the whole world, I want to speak only to you, the person who wants to know more about world of aquaculture data analysis and visualization. I am so glad that you are here! We will have fun learning about this fascinating and growing ecosystem of information and real actions on the ground.</description>
-    </item>
-    
-    <item>
-      <title>yo2</title>
-      <link>/2019/12/21/yo2/</link>
-      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/12/21/yo2/</guid>
-      <description></description>
     </item>
     
   </channel>
