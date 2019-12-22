@@ -9,7 +9,7 @@ tags: []
 
 # purpose
  
-Download and take an intial look at the European Commisson,Fisheries and Aquaculture: Scientific, Technical and Economic Committee for Fisheries (STECF) aquaculture economic data tables. 
+Download and take an intial look at the European Commisson, Fisheries and Aquaculture: Scientific, Technical and Economic Committee for Fisheries (STECF) aquaculture economic data tables. 
 
 # analyst note 
 
