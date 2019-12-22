@@ -20,5 +20,19 @@
       <description>Yo!Well isn’t this lovely! I get to pretend that I’m talking to the entire world. And yet I don’t want to speak to the whole world, I want to speak only to you, the person who wants to know more about world of aquaculture data analysis and visualization. I am so glad that you are here! We will have fun learning about this fascinating and growing ecosystem of information and real actions on the ground.</description>
     </item>
     
+    <item>
+      <title>STECF data download and inspect (part_1)</title>
+      <link>/2019/12/21/stecf-data-download-and-exploration/</link>
+      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/12/21/stecf-data-download-and-exploration/</guid>
+      <description>purposeDownload and take an intial look at the STECF auquaculture data in preparation for subsequent analysis and visualization.
+analyst noteThis is part 1. As I move through the stages of exploration, and when I feel like it might be worth sharing with you, I’ll post another part.
+data descriptionAgency: European Commisson: Fisheries and Aquaculture.
+https://stecf.jrc.ec.europa.eu/dd/aqua
+download datahttps://stecf.jrc.ec.europa.eu/documents/43805/2192243/STECF+18-19+-+Aquaculture+economic+data+tables.xlsx/bbbefd1b-62ca-45bd-a632-cfb97bd0e2ef
+original file formatExcel spreadsheet(*.</description>
+    </item>
+    
   </channel>
 </rss>

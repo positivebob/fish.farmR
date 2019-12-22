@@ -7,9 +7,10 @@ This is an open notebook that is focused on the application of R-based tools to 
 
 I would say confidently that I identify mostly with what I don't know about this topic and less with what I do. So come along with me as I explore along and through! We may discover something altogether new!
 
-**Robert P. McGuinn** 
-2019-12-21
-Charleston, South Carolina, USA
+
+Robert P. McGuinn  
+Charleston, South Carolina, USA   
+*2019-12-21*
 
 
 
