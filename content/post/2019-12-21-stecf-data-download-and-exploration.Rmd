@@ -9,7 +9,7 @@ tags: []
 
 # purpose
  
-Download and take an intial look at the European Commisson, Fisheries and Aquaculture: Scientific, Technical and Economic Committee for Fisheries (STECF) aquaculture economic data tables. 
+Explore aquaculture economic data from the European Commisson, Fisheries and Aquaculture: Scientific, Technical and Economic Committee for Fisheries (STECF).
 
 # analyst note 
 
@@ -119,7 +119,7 @@ The above paragraph uses inline code for the numerical values. Example below of 
 
 ```
 
-# table by country
+# table of 'Total sales volume' by EU country
 
 Here is an example summary table grouped by country with total sales volume in tonnes (mean per firm value sum of all sales volume regardless of the year of reporting)
 

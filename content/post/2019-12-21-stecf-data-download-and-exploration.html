@@ -13,7 +13,7 @@ tags: []
 
 <div id="purpose" class="section level1">
 <h1>purpose</h1>
-<p>Download and take an intial look at the European Commisson, Fisheries and Aquaculture: Scientific, Technical and Economic Committee for Fisheries (STECF) aquaculture economic data tables.</p>
+<p>Explore aquaculture economic data from the European Commisson, Fisheries and Aquaculture: Scientific, Technical and Economic Committee for Fisheries (STECF).</p>
 </div>
 <div id="analyst-note" class="section level1">
 <h1>analyst note</h1>
@@ -116,8 +116,8 @@ d &lt;- length(levels(factor(eumap$species)))</code></pre>
 <p>The above paragraph uses inline code for the numerical values. Example below of what would be placed in an RMarkdown document, like this one.</p>
 <pre class="r"><code>...number of records within dcf is `r prettyNum(a, big.mark = &quot;,&quot;)`</code></pre>
 </div>
-<div id="table-by-country" class="section level1">
-<h1>table by country</h1>
+<div id="table-of-total-sales-volume-by-eu-country" class="section level1">
+<h1>table of ‘Total sales volume’ by EU country</h1>
 <p>Here is an example summary table grouped by country with total sales volume in tonnes (mean per firm value sum of all sales volume regardless of the year of reporting)</p>
 <pre class="r"><code>x &lt;- dcf %&gt;% filter(value != 0, 
                     variable_name == &#39;Total sales volume&#39;
