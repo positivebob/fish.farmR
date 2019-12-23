@@ -137,7 +137,8 @@ x <- dcf %>% filter(value != 0,
             mean_value = mean(value),
             sum_of_value = sum(value),
             unit = paste(unique(unit), collapse=" | "),
-            firms = n()) %>% arrange(-median_value)
+            firms = n()) %>% arrange(-median_value) %>% 
+  arrange(-sum_of_value)
 
 #View(x)
 
@@ -175,9 +176,9 @@ x <- dcf %>% filter(variable_name == 'Sales volume production',
   arrange(-sum_value)
 
 
-
-            
 #View(x)
+
+# Use the flextable package to make a nicely formatted table
 
 x <- x[1:50,]
 
@@ -211,7 +212,7 @@ plot(x$sum_value)
 
 ```
 
-It is evident that the top 2 species `r x$common_name[1]` and `r x$common_name[2]`, are far and away the most produced by volume.
+It is evident that the top 2 species, `r x$common_name[1]` and `r x$common_name[2]`, are far and away the most produced by volume.
 
 # analyst note
 I think that is where I will leave this particular post.  In part 2 of this exploration we will dig a little deeper with some nicer visualizations and maybe some more summary tables. For now you have the data in hand and can explore at will. Cheers!
