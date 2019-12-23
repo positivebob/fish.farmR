@@ -155,7 +155,7 @@ ft</code></pre>
 </div>
 <div id="table-top-50-species-by-sales-volume-production" class="section level1">
 <h1>table: top 50 species by ‘Sales volume production’</h1>
-<p>The following table gives the top 50 species with regards to ‘Sales volume production’ in unit = ‘TONNE’ within the EU. The <strong>‘dcf’</strong> data was used here (all years together, from 2008 to 2016). The sum of ’Sales volume production’grouped by species is used as the ranking variable.</p>
+<p>The following table gives the top 50 species with regards to ‘Sales volume production’ in unit = ‘TONNE’ within the EU. The <strong>‘dcf’</strong> data was used here (all years together, from 2008 to 2016). The sum of ‘Sales volume production’ grouped by species is used as the ranking variable.</p>
 <pre class="r"><code>x &lt;- dcf %&gt;% filter(variable_name == &#39;Sales volume production&#39;, 
                     value != 0, 
                     is.na(value) == FALSE) %&gt;% 
