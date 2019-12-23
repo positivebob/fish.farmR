@@ -160,9 +160,9 @@ ft
 
 ```
 
-# table: top 20 by species
+# table: top 50 species by 'Sales volume production'
 
-The following table gives the twenty top 50 species with regards to 'Sales volume production' in unit = 'TONNE' within the EU. The **'dcf'** data was used here (all years together, from `r min(dcf$year)` to `r max(dcf$year)`). The sum of 'Sales volume production'grouped by species is used as the ranking variable.
+The following table gives the top 50 species with regards to 'Sales volume production' in unit = 'TONNE' within the EU. The **'dcf'** data was used here (all years together, from `r min(dcf$year)` to `r max(dcf$year)`). The sum of 'Sales volume production'grouped by species is used as the ranking variable.
 
 ``` {r eumap_by_country, eval = TRUE}
 
