@@ -119,9 +119,9 @@ The above paragraph uses inline code for the numerical values. Example below of 
 
 ```
 
-# table of 'Total sales volume' by EU country
+# table: 'Total sales volume' by EU country
 
-Here is an example summary table grouped by country with total sales volume in tonnes (mean per firm value sum of all sales volume regardless of the year of reporting)
+Here is an example summary table grouped by country with 'Total sales volume' in tonnes (all years together, from `r min(dcf$year)` to `r max(dcf$year)`. A range of `r max(dcf$year) - min(dcf$year)` years).
 
 ``` {r dcm_by_country, eval = TRUE}
 
@@ -133,12 +133,15 @@ x <- dcf %>% filter(value != 0,
   summarize(# species = paste(unique(species), collapse=" | "),
             variable = paste(unique(variable_name), collapse = " | "),
             # country_name = paste(unique(country_name), collapse = " | "),
+            median_value = median(value),
             mean_value = mean(value),
             sum_of_value = sum(value),
             unit = paste(unique(unit), collapse=" | "),
-            firms = n()) %>% arrange(-sum_of_value)
+            firms = n()) %>% arrange(-median_value)
 
 #View(x)
+
+# use 
 
 colkeys <- names(x[,-1])
 
@@ -157,11 +160,61 @@ ft
 
 ```
 
+# table: top 20 by species
+
+The following table gives the twenty top 50 species with regards to 'Sales volume production' in unit = 'TONNE' within the EU. The **'dcf'** data was used here (all years together, from `r min(dcf$year)` to `r max(dcf$year)`). The sum of 'Sales volume production'grouped by species is used as the ranking variable.
+
+``` {r eumap_by_country, eval = TRUE}
+
+x <- dcf %>% filter(variable_name == 'Sales volume production', 
+                    value != 0, 
+                    is.na(value) == FALSE) %>% 
+  
+  group_by(scientific_name, common_name, species) %>%
+  summarize(sum_value = sum(value)) %>% 
+  arrange(-sum_value)
 
 
 
+            
+#View(x)
+
+x <- x[1:50,]
+
+x$Rank <- seq_along(1:50)
 
 
+colkeys <- names(x[,-1])
+
+ft <- flextable(x) %>% 
+  theme_vanilla() %>% #booktabs, vanilla, box, tron, tron_legacy
+ # set_header_labels(Field_Names = "Field Name", n = "# of Records") %>% 
+  colformat_num(col_keys = colkeys, digits = 0, big.mark = ",", na_str = "NA") %>% 
+  # set_header_labels(#country_name = "country"
+  #                   #species = "species_list"
+  #                   ) %>% 
+  font(fontname = "Cambria", part = "all") %>% #header, body, all
+  fontsize(size = 14, part = "all") %>% 
+  autofit() 
+
+ft
+
+```
+
+# figure: quick plot of species ranks
+
+Quick plot of species ranks to get a sense of the relative scales of production. 
+
+```{r fig_species_rank_plot}
+
+plot(x$sum_value)
+
+```
+
+It is evident that the top 2 species `r x$common_name[1]` and `r x$common_name[2]`, are far and away the most produced by volume.
+
+# analyst note
+I think that is where I will leave this particular post.  In part 2 of this exploration we will dig a little deeper with some nicer visualizations and maybe some more summary tables. For now you have the data in hand and can explore at will. Cheers!
 
 
 
