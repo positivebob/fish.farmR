@@ -6,10 +6,21 @@
     <description>Recent content on fish.farmR</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Exploring EU aquacultural economy (part_2)</title>
+      <link>/2020/01/23/exploring-eu-aquacultural-economy-part-2/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/01/23/exploring-eu-aquacultural-economy-part-2/</guid>
+      <description>analyst notesIn part 1 of this exploration we were able to load data frames ‘dcf’ and ‘eumpap’ from the STECF aquaculture economics tables. Pretty interesting data struture. Not sure I fully understand it just yet, but interested to continue exploring.
+We can load the proper packages and re-load the data as we did in the last post.
+load packagesThe following list of packages are required to run the subsequent R commands.</description>
+    </item>
     
     <item>
       <title>Exploring EU aquacultural economy (part_1)</title>

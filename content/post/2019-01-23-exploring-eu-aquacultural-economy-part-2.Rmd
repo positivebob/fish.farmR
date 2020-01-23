@@ -1,0 +1,343 @@
+---
+title: Exploring EU aquacultural economy (part_2)
+author: Robert P. McGuinn
+date: '2020-01-23'
+slug: exploring-eu-aquacultural-economy-part-2
+categories: []
+tags: []
+code_folding: hide
+---
+# analyst notes
+
+In [part 1](https://fishfarmr.netlify.com/2019/12/22/stecf-data-download-and-exploration/) of this exploration we were able to load data frames **'dcf'** and **'eumpap'** from the STECF aquaculture economics tables.  Pretty interesting data struture. Not sure I fully understand it just yet, but interested to continue exploring.
+
+We can load the proper packages and re-load the data as we did in the last post.   
+
+# load packages    
+
+The following list of packages are required to run the subsequent R commands. Install these if you do not already have them.
+
+```{r load_packages, eval=TRUE, results='hide', message=FALSE, warning=FALSE}
+
+library(openxlsx)
+library(tidyverse)
+library(magrittr)
+library(flextable)
+library(ggplot2)
+```
+
+# load data to R
+
+```{r load_data, eval=TRUE, cache=TRUE}
+
+# load the data 
+setwd("C:/rworking/fish.farmr/indata")
+
+# load the dcf table
+dcf <- read.xlsx("C:/rworking/fish.farmR/indata/STECF 18-19 - Aquaculture economic data tables.xlsx", sheet = 5, colNames = TRUE)
+
+# load the eumap table
+eumap <- read.xlsx("C:/rworking/fish.farmR/indata/STECF 18-19 - Aquaculture economic data tables.xlsx", sheet = 6, colNames = TRUE)
+
+
+```
+  
+Another bit of data prep. Set this value to control numeric output switching to scientific notation. 
+
+```{r sci_note}
+
+options(scipen=10000)
+
+```
+
+Now you have **'dcf'** and **'eumap'** data frames again.  We can now work on a couple tables to explore what each dataset contains.  
+
+# table: top 20 species
+
+The table created by the code below looks at species farmed, arranged them by the sum of all 'Sales volume production'. Keep in mind that this is summed over all years. 
+
+```{r}
+
+# set options for scientific notation
+options(scipen=999)
+
+# get the species ordered by 'Sales volume production'
+spec <- dcf %>% filter(variable_name == 'Sales volume production',
+                       value != 0, 
+                       is.na(value) == FALSE,) %>% 
+  group_by(common_name) %>% summarize(sum_sales_vol = sum(value)) %>% 
+  arrange(-sum_sales_vol)
+
+# pick the number of rows that you would like to show in the table
+spec <- spec$common_name[1:20]
+
+# filter and group
+x <- dcf %>% filter(variable_name == 'Sales volume production',
+                    value != 0, 
+                    is.na(value) == FALSE,
+                    common_name %in% spec,
+                    ) %>% 
+  group_by(common_name) %>% 
+  summarize(n=n(),sum_sales_vol = sum(value), unit = unique(unit)) %>% 
+  arrange(-sum_sales_vol)
+
+# make the table using 'flextable' package
+col_keys <- c("n", "sum_sales_vol")
+ft <- flextable(x) %>% 
+  theme_vanilla() %>% #booktabs, vanilla, box, tron, tron_legacy
+  #set_header_labels(class = "Type of Data", Number_Datasets = "# of Data Sets", Records = "# of Records") %>% 
+  colformat_num(col_keys = col_keys, digits = 0, big.mark = ",", na_str = "NA") %>% 
+  font(fontname = "Cambria", part = "all")  %>% #header, body, all
+  autofit() %>% 
+  width(j = ~ common_name, width = 4.2) %>% 
+  align_text_col(align = "left") %>% 
+  align_nottext_col(align = "right") %>% 
+  fontsize(size = 16, part = "all")
+  
+ft
+
+```
+
+# table: production variables that are associated with species.
+
+```{r}
+
+# create subset of interested with stats
+
+x <- dcf %>% filter(is.na(species) == F, 
+                    #segment_name == "National Totals", 
+                    #country_code == 'FIN' | country_code == 'FRA',
+                    #variable_name == 'Raw material volume: Livestock'
+                    ) %>% 
+  group_by(variable_group, 
+           variable_name
+           # country_code,
+           # as.character(year), 
+           ) %>% 
+  summarize(#n=n(), 
+            #value = value,
+            unit = unique(unit)
+            ) 
+
+#x <- subset(x, select=-c(n))
+
+# create flextable 
+#colkeys <- c("n","value")
+ft <- flextable(x) %>% 
+  theme_box() %>% 
+ # colformat_num(col_keys = colkeys, digits = 0, big.mark = ",", na_str = "NR") %>% 
+  font(fontname = "Cambria", part = "all")  %>%
+  fontsize(size = 16, part = "all") %>% #header, body, all
+  autofit() %>% 
+  align_text_col(align = "left") %>% 
+  align_nottext_col(align = "right") %>% 
+  merge_v(j = c('variable_group', 'variable_name'))
+
+  
+ft
+
+
+```
+
+# table: variables that are available and are reported without a species attached.  
+
+These variables are reported at the country level and by 'segment_name' for each year. Be aware that some years have unreported data when you are analyzing your tables. You will want to set your segment_name before looking at these variables. See for example segment name == "National Totals".
+
+```{r}
+
+# create subset of interested with stats
+
+x <- dcf %>% filter(is.na(species) == T, 
+                    #segment_name == "National Totals", 
+                    #country_code == 'FIN' | country_code == 'FRA',
+                    #variable_name == 'Raw material volume: Livestock'
+                    ) %>% 
+  group_by(variable_group, 
+           variable_name
+           # country_code,
+           # as.character(year), 
+           ) %>% 
+  summarize(#n=n(), 
+            #value = value,
+            unit = unique(unit)
+            ) 
+
+#x <- subset(x, select=-c(n))
+
+# create flextable 
+#colkeys <- c("n","value")
+ft <- flextable(x) %>% 
+  theme_box() %>% 
+ # colformat_num(col_keys = colkeys, digits = 0, big.mark = ",", na_str = "NR") %>% 
+  font(fontname = "Cambria", part = "all")  %>%
+  fontsize(size = 16, part = "all") %>% #header, body, all
+  autofit() %>% 
+  align_text_col(align = "left") %>% 
+  align_nottext_col(align = "right") %>% 
+  merge_v(j = c('variable_group', 'variable_name'))
+
+  
+ft
+
+
+```
+
+# table: 'segment_name' and 'segment_code'.  
+
+Here is a unique list of the segments.
+
+```{r}
+
+# gather variables of interest
+x <- dcf %>% filter(is.na(species) == T, 
+                    ) %>% 
+  group_by(
+           segment_name,
+           segment_code
+           #variable_name
+           ) %>% 
+  summarize(n=n() 
+            ) 
+
+x <- x[,1:2]
+
+# create flextable
+ft <- flextable(x) %>% 
+  theme_box() %>% 
+ # colformat_num(col_keys = colkeys, digits = 0, big.mark = ",", na_str = "NR") %>% 
+  font(fontname = "Cambria", part = "all")  %>%
+  fontsize(size = 16, part = "all") %>% #header, body, all
+  autofit() %>% 
+  align_text_col(align = "left") %>% 
+  align_nottext_col(align = "right") %>% 
+  merge_v(j = c('segment_name', 'segment_code'))
+ft
+
+
+```
+
+# figure: 'Total income' through time for top producing countries.
+
+```{r}
+
+# country_codes:  [1] "BGR" "HRV" "CYP" "DNK" "EST" "FIN" "FRA" "DEU" "GRC" "IRL" "ITA" "MLT"
+# "NLD" "POL" "PRT" "ROU" "SVN" "ESP" "SWE" "GBR"
+options(scipen=999)
+
+countries1 <- dcf %>% 
+  filter(variable_name == 'Total income',
+         segment_name == 'National Totals',
+         value != 0, 
+         is.na(value) == FALSE
+         ) %>% 
+  group_by(country_name) %>% summarize(sum_total_income = sum(value)) %>%
+  arrange(-sum_total_income)
+
+countries <- countries1$country_name[1:4]
+
+x <- dcf %>% filter(variable_name == "Total income",
+                    country_name %in% countries,
+                    segment_name == 'National Totals',
+                    ) 
+
+# x$country_name <- factor(x$country_name)
+# countries1$country_name <- factor(countries1$country_name)
+# levels(countries1$country_name
+# levels(x$country_name) <- reorder(levels(x$country_name), as.character(countries1$country_name[1:4]))
+
+p <- x %>% ggplot(mapping = aes(x = year, y = value)) +
+  geom_line(aes(color = country_name)) +
+  theme_bw()+ 
+  geom_text(data = subset(x, year == "2011"), 
+            aes(label = country_name, 
+                colour = country_name, 
+                x = year, y = value), 
+            hjust = 1, vjust = 1) +
+  # scale_colour_discrete(guide = 'none')  +    
+  theme(plot.margin = unit(c(1,3,1,1), "lines")) 
+p
+
+
+
+```
+
+
+So these 'variable_group'(s) are only reported but without regard to species.  What variables are associated with species then?  Do a quick summary using this code. 
+
+```{r}
+
+dcf %>% filter(is.na(species) == F) %>% group_by(variable_group, variable_code, variable_name, unit) %>% summarize(n=n()) %>% arrange(-n)
+
+```
+
+For each species then, it looks like we only have the variables production values and not any other.
+
+# figure: total 'Sales volume production' by country for the top four species.
+
+Let's continue look at species differences, but also break it down at the country level. Here is the species
+
+``` {r top_country, echo=T}
+
+# create a list of top species with regards to 'Sales volume production'
+spec <- dcf %>% filter(variable_name == 'Sales volume production',
+                       value != 0, 
+                       is.na(value) == FALSE,) %>% 
+  group_by(common_name) %>% summarize(sum_sales_vol = sum(value)) %>% 
+  arrange(-sum_sales_vol)
+
+# pick a number between 2 and 6 here
+spec <- spec$common_name[1:4]
+
+# filter and group
+x <- dcf %>% filter(variable_name == 'Sales volume production',
+                    value != 0, 
+                    is.na(value) == FALSE,
+                    common_name %in% spec,
+                    ) %>% 
+  group_by(country_name, common_name) %>% 
+  summarize(sum_sales_vol = sum(value)) %>% 
+  arrange(-sum_sales_vol)
+
+wrap_by <- function(...) {
+  facet_wrap(vars(...), labeller = label_value)
+}
+
+# create plot
+ggplot(x, aes(x = reorder(country_name, -sum_sales_vol), y = sum_sales_vol)) + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .1)) +
+  #facet_grid(row = vars(species)) +
+  wrap_by(common_name)
+ 
+```
+
+# figure: total 'Sales volume production' in Germany excluding 'Blue mussel'
+
+Excluded 'Blue mussel' because it is so high that it makes the rest of the species sad to look at :). 
+
+``` {r top_species, echo=FALSE}
+# look at top species per country
+x <- dcf %>% filter(variable_name == 'Sales volume production',
+                    value != 0, 
+                    #value < 20000000,
+                    #value > 500,
+                    is.na(value) == FALSE,
+                    # species == 'MUS'
+                    common_name != 'Blue mussel',
+                    country_name == "Germany"
+                    ) %>% 
+  group_by(common_name) %>% summarize(sum_sales_vol = sum(value), unit = unique(unit)) %>% arrange(-sum_sales_vol)
+
+ggplot(x, aes(x = reorder(common_name, -sum_sales_vol), y = sum_sales_vol)) + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .1))
+
+```
+
+# analyst notes
+   
+I think I will end this analysis here.  My goal was to explore and understand the structure of the STECF dataset and provide some example techniques to explore and summarize the data through tables and visualization.  My goal was not to get too worked up over finalizing the figures and tables or even to make sweeping conclusions about the EU fish farming economy, but to get some tools into your hands for downloading the data and beginning your exploration. I hope that helped.  Please head over to [f.fR on twitter](https://twitter.com/fish_farmR) to communicate about your exciting findings! 
+   
+By the way.  I love the ['flextable'](https://davidgohel.github.io/flextable/) package. Thank you David Gohel at ARDATA and all of the workers involved for creating a very nice tool!   
+   
+Cheers! 

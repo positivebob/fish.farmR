@@ -11,5 +11,5 @@ blogdown::serve_site()
 servr::daemon_stop(1)
 
 ##### new post ##### 
-blogdown::new_post("STECF data download and exploration", 
+blogdown::new_post("Exploring EU aquacultural economy (part_2)", 
                    ext = getOption("blogdown.ext", ".Rmd"))

@@ -215,7 +215,7 @@ plot(x$sum_value)
 It is evident that the top 2 species, `r x$common_name[1]` and `r x$common_name[2]`, are far and away the most produced by volume.
 
 # analyst note
-I think that is where I will leave this particular post.  In part 2 of this exploration we will dig a little deeper with some nicer visualizations and maybe some more summary tables. For now you have the data in hand and can explore at will. Cheers!
+I think that is where I will leave this particular post. In part 2 of this exploration we will dig a little deeper with some nicer visualizations and maybe some more summary tables. For now you have the data in hand and can explore at will. Cheers!
 
 
 

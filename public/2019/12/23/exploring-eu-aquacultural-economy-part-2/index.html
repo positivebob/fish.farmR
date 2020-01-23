@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.61.0" />
+
+
+<title>Exploring EU aquacultural economy (part_2) - fish.farmR</title>
+<meta property="og:title" content="Exploring EU aquacultural economy (part_2) - fish.farmR">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/fishfarmr.png"
+         width="500"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/positivebob/fish.farmR">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/fish_farmR">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Exploring EU aquacultural economy (part_2)</h1>
+
+    
+    <span class="article-date">2019-12-23</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="analyst-notes" class="section level1">
+<h1>analyst notes</h1>
+<p>In part 1 of this exploration we were able to load data frames <strong>‘dcf’</strong> and <strong>‘eumpap’</strong> from the STECF aquaculture economics tables. Pretty interesting data struture. Not sure I fully understand it just yet, but interested to continue exploring.</p>
+<p>We can load the proper packages and re-load the data as we did in the last post.</p>
+</div>
+<div id="load-packages" class="section level1">
+<h1>load packages</h1>
+<p>The following list of packages are required to run the subsequent R commands. Install these if you do not already have them.</p>
+<pre class="r"><code>library(openxlsx)
+library(tidyverse)
+library(magrittr)
+library(flextable)
+library(ggplot2)</code></pre>
+</div>
+<div id="load-data-to-r" class="section level1">
+<h1>load data to R</h1>
+<pre class="r"><code># load the data 
+setwd(&quot;C:/rworking/fish.farmr/indata&quot;)
+
+dcf &lt;- read.xlsx(&quot;C:/rworking/fish.farmR/indata/STECF 18-19 - Aquaculture economic data tables.xlsx&quot;, sheet = 5, colNames = TRUE)
+
+eumap &lt;- read.xlsx(&quot;C:/rworking/fish.farmR/indata/STECF 18-19 - Aquaculture economic data tables.xlsx&quot;, sheet = 6, colNames = TRUE)</code></pre>
+<p>Now you have <strong>‘dcf’</strong> and <strong>‘eumap’</strong> data frames again.</p>
+</div>
+<div id="table-top-50-species-by-sales-volume-production" class="section level1">
+<h1>table: top 50 species by ‘Sales volume production’</h1>
+<p>Let’s continue look at species differences, but also break it down at the country level.</p>
+<p><img src="/post/2019-12-23-exploring-eu-aquacultural-economy-part-2_files/figure-html/FishCouncilRegion-1.png" width="672" /><img src="/post/2019-12-23-exploring-eu-aquacultural-economy-part-2_files/figure-html/FishCouncilRegion-2.png" width="672" /></p>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var d = document, s = d.createElement('script');
+    s.src = '//fish.farmR.disqus.com/embed.js'; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'fish.farmR', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+
