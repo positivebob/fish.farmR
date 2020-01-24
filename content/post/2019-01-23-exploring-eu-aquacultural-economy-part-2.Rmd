@@ -315,7 +315,7 @@ ggplot(x, aes(x = reorder(country_name, -sum_sales_vol), y = sum_sales_vol)) +
 
 Excluded 'Blue mussel' because it is so high that it makes the rest of the species sad to look at :). 
 
-``` {r top_species, echo=FALSE}
+``` {r top_species, echo=T}
 # look at top species per country
 x <- dcf %>% filter(variable_name == 'Sales volume production',
                     value != 0, 
@@ -338,6 +338,6 @@ ggplot(x, aes(x = reorder(common_name, -sum_sales_vol), y = sum_sales_vol)) +
    
 I think I will end this analysis here.  My goal was to explore and understand the structure of the STECF dataset and provide some example techniques to explore and summarize the data through tables and visualization.  My goal was not to get too worked up over finalizing the figures and tables or even to make sweeping conclusions about the EU fish farming economy, but to get some tools into your hands for downloading the data and beginning your exploration. I hope that helped.  Please head over to [f.fR on twitter](https://twitter.com/fish_farmR) to communicate about your exciting findings! 
    
-By the way.  I love the ['flextable'](https://davidgohel.github.io/flextable/) package. Thank you David Gohel at ARDATA and all of the workers involved for creating a very nice tool!   
+By the way.  I love the ['flextable'](https://davidgohel.github.io/flextable/) package. Thank you David Gohel at [ARDATA](https://www.ardata.fr/) and all of the workers involved for creating a very nice tool!   
    
 Cheers! 

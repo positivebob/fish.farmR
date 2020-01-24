@@ -274,11 +274,26 @@ ggplot(x, aes(x = reorder(country_name, -sum_sales_vol), y = sum_sales_vol)) +
 <div id="figure-total-sales-volume-production-in-germany-excluding-blue-mussel" class="section level1">
 <h1>figure: total ‘Sales volume production’ in Germany excluding ‘Blue mussel’</h1>
 <p>Excluded ‘Blue mussel’ because it is so high that it makes the rest of the species sad to look at :).</p>
+<pre class="r"><code># look at top species per country
+x &lt;- dcf %&gt;% filter(variable_name == &#39;Sales volume production&#39;,
+                    value != 0, 
+                    #value &lt; 20000000,
+                    #value &gt; 500,
+                    is.na(value) == FALSE,
+                    # species == &#39;MUS&#39;
+                    common_name != &#39;Blue mussel&#39;,
+                    country_name == &quot;Germany&quot;
+                    ) %&gt;% 
+  group_by(common_name) %&gt;% summarize(sum_sales_vol = sum(value), unit = unique(unit)) %&gt;% arrange(-sum_sales_vol)
+
+ggplot(x, aes(x = reorder(common_name, -sum_sales_vol), y = sum_sales_vol)) + 
+  geom_bar(stat = &quot;identity&quot;) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .1))</code></pre>
 <p><img src="/post/2019-01-23-exploring-eu-aquacultural-economy-part-2_files/figure-html/top_species-1.png" width="672" /></p>
 </div>
 <div id="analyst-notes-1" class="section level1">
 <h1>analyst notes</h1>
 <p>I think I will end this analysis here. My goal was to explore and understand the structure of the STECF dataset and provide some example techniques to explore and summarize the data through tables and visualization. My goal was not to get too worked up over finalizing the figures and tables or even to make sweeping conclusions about the EU fish farming economy, but to get some tools into your hands for downloading the data and beginning your exploration. I hope that helped. Please head over to <a href="https://twitter.com/fish_farmR">f.fR on twitter</a> to communicate about your exciting findings!</p>
-<p>By the way. I love the <a href="https://davidgohel.github.io/flextable/">‘flextable’</a> package. Thank you David Gohel at ARDATA and all of the workers involved for creating a very nice tool!</p>
+<p>By the way. I love the <a href="https://davidgohel.github.io/flextable/">‘flextable’</a> package. Thank you David Gohel at <a href="https://www.ardata.fr/">ARDATA</a> and all of the workers involved for creating a very nice tool!</p>
 <p>Cheers!</p>
 </div>
